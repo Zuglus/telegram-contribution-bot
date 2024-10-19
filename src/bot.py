@@ -1,22 +1,28 @@
-# src/bot.py
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 from telegram.ext import ApplicationBuilder, CommandHandler
-from event_manager import EventManager
-from functional_handlers import create_message_handler
+from src.event_manager import EventManager
+from src.functional_handlers import create_message_handler
 
 class TelegramBot:
-    def __init__(self, token):
-        self.token = token
+    def __init__(self):
+        self.token = os.getenv("TELEGRAM_TOKEN")
+        if not self.token:
+            raise ValueError("TELEGRAM_TOKEN не найден в переменных окружения")
+
         self.event_manager = EventManager()
         self.app = ApplicationBuilder().token(self.token).build()
 
     def register_events(self):
-        """Регистрация обработчиков как событий."""
-        self.event_manager.subscribe('start', create_message_handler('Привет! Я функциональный бот.'))
-        self.event_manager.subscribe('help', create_message_handler('Вот как ты можешь меня использовать:\n/start - Приветствие\n/help - Справка'))
+        """Регистрация событий."""
+        self.event_manager.subscribe('start', create_message_handler('Привет! Я бот.'))
+        self.event_manager.subscribe('help', create_message_handler('Помощь: /start /help'))
 
     def add_handlers(self):
-        """Добавляем команды и их обработчики."""
+        """Добавление обработчиков команд."""
         self.app.add_handler(CommandHandler('start', self.start_handler))
         self.app.add_handler(CommandHandler('help', self.help_handler))
 
@@ -33,6 +39,5 @@ class TelegramBot:
         self.app.run_polling()
 
 if __name__ == '__main__':
-    # Вставьте сюда свой токен
-    bot = TelegramBot('6334905594:AAHHM6ui10VxzTXWi3ugFPtjMa6oyAlH4yw')
+    bot = TelegramBot()
     bot.run()
