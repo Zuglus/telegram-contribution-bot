@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.swp
+*~
+*.env
+.venv/
+venv/
+
+# Virtualenv
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# Logs and debug files
+*.log
+*.out
+*.err
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.cache/
+coverage.*
+.coverage
+*.cover
+*.py,cover
+.hypothesis/
+
+# Docker
+*.dockerfile
+docker-compose.yml
+docker-compose.override.yml
+.env.docker
+
+# Kubernetes config and YAML files
+.kube/
+*.yaml
+*.yml
+
+# Node modules (if using frontend tools)
+node_modules/
+
+# Local and environment settings
+.env
+.env.local
+.env.*.local
+.envrc
