@@ -3,25 +3,44 @@ __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+bin/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
 *.swp
 *~
-*.env
+
+# Virtual Environment
+.env
 .venv/
 venv/
+ENV/
+env/
 
-# Virtualenv
-pip-log.txt
-pip-delete-this-directory.txt
+# IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+.project
+.pydevproject
+.settings/
 
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-
-# Jupyter Notebooks
-.ipynb_checkpoints
-
-# Logs and debug files
+# Logs and Databases
 *.log
+*.sqlite3
+*.db
+logs/
 *.out
 *.err
 
@@ -29,29 +48,49 @@ __pycache__/
 htmlcov/
 .tox/
 .nox/
-.cache/
-coverage.*
 .coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
 *.cover
 *.py,cover
 .hypothesis/
+.pytest_cache/
+cover/
 
-# Docker
-*.dockerfile
-docker-compose.yml
-docker-compose.override.yml
-.env.docker
+# Jupyter Notebook
+.ipynb_checkpoints
 
-# Kubernetes config and YAML files
-.kube/
-*.yaml
-*.yml
-
-# Node modules (if using frontend tools)
-node_modules/
-
-# Local and environment settings
+# Project specific
+database.sqlite3
 .env
-.env.local
-.env.*.local
-.envrc
+config.ini
+*.bak
+temp/
+uploads/
+downloads/
+.DS_Store
+
+# Documentation
+docs/_build/
+docs/api/
+
+# Backup files
+*.bak
+*.tmp
+*.temp
+*~
+
+# Package specific
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Local development settings
+local_settings.py
+settings_local.py
+
+# Certificates and keys
+*.pem
+*.key
+*.crt
